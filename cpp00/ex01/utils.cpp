@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 19:23:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/12 21:09:35 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/15 16:36:03 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ std::string	phonebook::format_string(std::string str)
 	return (str);
 }
 
-void	phonebook::display_contact(int index)
+void	phonebook::display_all_contacts(int index)
 {
 	std::cout << index << "         |";
 	std::cout << std::setw(10) << format_string(contact[index].first_name)  << "|";
@@ -61,30 +61,44 @@ void	phonebook::display_contact(int index)
 	std::cout << std::setw(10) << format_string(contact[index].nickname)  << "|" << std::endl;
 }
 
+void	phonebook::display_contact(int index)
+{
+	std::cout << "First name: "<< contact[index].first_name << std::endl;
+	std::cout << "Last name: "<< contact[index].last_name << std::endl;
+	std::cout << "Nickname: "<< contact[index].nickname << std::endl;
+	std::cout << "Number: "<< contact[index].number << std::endl;
+	std::cout << "Secret: "<< contact[index].secret << std::endl;
+}
+
 void	phonebook::search_contact()
 {
 	for (int i = 0; i < size; i++)
-		display_contact(i);
-	int	index;
+		display_all_contacts(i);
 
+	int	index;
 	std::cout << "Enter a number between 0 and 7 to get the index of your searched contact: ";
 	std::cin >> index;
-	if (index < 0 && index > 7)
-		std::cout << "Wrong index has to be between 0 and 7!\n";
+	if (std::cin.fail())
+	{
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. You have to enter an int." << std::endl;
+		return ;
+	}
 	if (index >= size)
-		std::cout << "There is currently no contact at position" << index << std::endl;
+		std::cout << "There is currently no contact at position " << index << std::endl;
 	else
 		display_contact(index);
 }
 
 void	phonebook::add_to_phonebook()
 {
-	size++;
 	if (size == 8)
 	{
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < size - 1; i++)
 			contact[i] = contact[i + 1];
 		size--;
 	}
+	size++;
 	add_contact(size - 1);
 }

@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:24:02 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/12 21:10:01 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/15 15:59:38 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ class phonebook
 {
 	private:
 		void	add_contact(int index);
+		void	display_all_contacts(int index);
 		void	display_contact(int index);
+		
 		int		size;
 	public:
 		contacts contact[8];
