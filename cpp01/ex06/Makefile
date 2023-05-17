@@ -23,6 +23,4 @@ fclean: clean
 
 re: fclean all
 
-#val: ${shell valgrind ./$(NAME)} 
-
 .PHONY: all clean fclean re
