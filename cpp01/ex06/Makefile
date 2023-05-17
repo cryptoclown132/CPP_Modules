@@ -1,10 +1,10 @@
-NAME = war
+NAME = harl
 
 SRC = ${shell echo *.cpp}
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-HEADER = ${shell echo *.hpp}
+HEADER = Harl.hpp
 
 CC =  c++
 
@@ -22,5 +22,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+#val: ${shell valgrind ./$(NAME)} 
 
 .PHONY: all clean fclean re

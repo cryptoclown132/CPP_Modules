@@ -1,10 +1,10 @@
-NAME = war
+NAME = replace
 
 SRC = ${shell echo *.cpp}
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-HEADER = ${shell echo *.hpp}
+HEADER = file_replace.hpp
 
 CC =  c++
 

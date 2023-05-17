@@ -18,7 +18,7 @@ std::string	Weapon::get_type() const{
 	return (this->_type);
 }
 
-void	Weapon::set_type(std::string new_type)
+void	Weapon::setType(std::string new_type)
 {
 	if (new_type.empty())
 		this->_type = "default weapon";

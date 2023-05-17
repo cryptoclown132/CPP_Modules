@@ -1,10 +1,10 @@
-NAME = war
+NAME = harl
 
 SRC = ${shell echo *.cpp}
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-HEADER = ${shell echo *.hpp}
+HEADER = Harl.hpp
 
 CC =  c++
 
