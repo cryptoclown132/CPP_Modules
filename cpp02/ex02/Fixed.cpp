@@ -5,18 +5,18 @@ const int Fixed::_frac_bits = 8;
 
 Fixed::Fixed() : _fixed_point(0)
 {
-	std::cout << "Default constructor called\n";
+	//std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(Fixed const &fixed)
 {
-	std::cout << "Copy constructor called\n";
+	//std::cout << "Copy constructor called\n";
 	*this = fixed;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n";
+	//std::cout << "Destructor called\n";
 }
 		
 int	Fixed::getRawBits(void) const{
@@ -30,7 +30,7 @@ void	Fixed::setRawBits(int const raw)
 
 Fixed	&Fixed::operator=(Fixed const &fixed)
 {
-	std::cout << "Copy assignment operator called\n";
+	//std::cout << "Copy assignment operator called\n";
 	if (this == &fixed)
 		return *this;
 	this->_fixed_point = fixed.getRawBits();
@@ -38,12 +38,12 @@ Fixed	&Fixed::operator=(Fixed const &fixed)
 }
 
 Fixed::Fixed(const int int_point){
-	std::cout << "Int constructor called\n";
+	//std::cout << "Int constructor called\n";
 	this->_fixed_point = int_point << this->_frac_bits;
 }
 		
 Fixed::Fixed(const float float_point){
-	std::cout << "Float constructor called\n";
+	//std::cout << "Float constructor called\n";
 	this->_fixed_point = roundf(float_point * (1 << this->_frac_bits));
 }
 
@@ -86,31 +86,74 @@ bool	Fixed::operator>=(Fixed const &fixed) const{
 
 Fixed	Fixed::operator+(Fixed const &fixed)
 {
-	Fixed tmp;
-	tmp.setRawBits(this->_fixed_point + fixed.getRawBits());
-	return tmp;
+	return this->toFloat() + fixed.toFloat();
 }
 
 Fixed	Fixed::operator-(Fixed const &fixed)
 {
-	Fixed tmp;
-	tmp.setRawBits(this->_fixed_point - fixed.getRawBits());
-	return tmp;
+	return this->toFloat() - fixed.toFloat();
 }
 
 Fixed	Fixed::operator*(Fixed const &fixed)
 {
-	Fixed tmp;
-	tmp.setRawBits(this->_fixed_point * fixed.getRawBits());
-	return tmp;
+	return this->toFloat() * fixed.toFloat();
 }
 
 Fixed	Fixed::operator/(Fixed const &fixed)
 {
-	Fixed tmp;
-	tmp.setRawBits(this->_fixed_point / fixed.getRawBits());
+	return this->toFloat() / fixed.toFloat();
+}
+
+Fixed	&Fixed::operator++(void)
+{
+	++this->_fixed_point;
+	return *this;
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	--this->_fixed_point;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp(*this);
+	this->_fixed_point++;
 	return tmp;
 }
-// Fixed	&operator-(Fixed const &fixed);
-// Fixed	&operator*(Fixed const &fixed);
-// Fixed	&operator/(Fixed const &fixed);
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp(*this);
+	this->_fixed_point--;
+	return tmp;
+}
+
+Fixed	&Fixed::min(Fixed &point_1, Fixed &point_2)
+{
+	if (point_1 < point_2)
+		return point_1;
+	return point_2;
+}
+
+const Fixed	&Fixed::min(const Fixed &point_1, const Fixed &point_2)
+{
+	if (point_1 < point_2)
+		return point_1;
+	return point_2;
+}
+
+Fixed	&Fixed::max(Fixed &point_1, Fixed &point_2)
+{
+	if (point_1 > point_2)
+		return point_1;
+	return point_2;
+}
+
+const Fixed	&Fixed::max(const Fixed &point_1, const Fixed &point_2)
+{
+	if (point_1 > point_2)
+		return point_1;
+	return point_2;
+}
