@@ -6,16 +6,16 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:27:37 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/12 20:46:47 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/22 18:33:01 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void	start_phonebook()
 {
 	std::string input;
-	phonebook book;
+	PhoneBook book;
 	
 	while (1)
 	{

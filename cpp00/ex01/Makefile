@@ -4,7 +4,7 @@ SRC = ${shell echo *.cpp}
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-HEADER = phonebook.hpp
+HEADER = ${shell echo *.hpp}
 
 CC =  c++
 

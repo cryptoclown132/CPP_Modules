@@ -1,7 +1,7 @@
 
 #include "../inc/AMateria.hpp"
 
-AMateria::AMateria() : _type("Default type")
+AMateria::AMateria() : _type("Default materia")
 {
 	std::cout << "AMateria constructor called\n";
 }
@@ -37,4 +37,9 @@ std::string const &AMateria::getType(void) const{
 void	AMateria::setType(std::string amateria)
 {
 	this->_type = amateria;
+}
+
+void		AMateria::use(ICharacter& target)
+{
+	std::cout << "* " << target.getName() << "makes default use *\n";
 }

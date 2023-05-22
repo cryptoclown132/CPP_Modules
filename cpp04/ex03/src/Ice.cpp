@@ -1,7 +1,7 @@
 
 #include "../inc/Ice.hpp"
 
-Ice::Ice()
+Ice::Ice() : AMateria()
 {
 	std::cout << "Ice constructor called\n";
 }
@@ -10,6 +10,11 @@ Ice::Ice(Ice const &ice)
 {
 	std::cout << "Ice copy constructor called\n";
 	*this = ice;
+}
+
+Ice::Ice(std::string const & type) : AMateria(type)
+{
+	std::cout << "Ice string constructor called\n";
 }
 
 Ice::~Ice()

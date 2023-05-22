@@ -1,7 +1,7 @@
 
 #include "../inc/Cure.hpp"
 
-Cure::Cure()
+Cure::Cure() : AMateria()
 {
 	std::cout << "Cure constructor called\n";
 }
@@ -15,6 +15,11 @@ Cure::Cure(Cure const &cure)
 Cure::~Cure()
 {
 	std::cout << "Cure destructor called\n";
+}
+
+Cure::Cure(std::string const & type) : AMateria(type)
+{
+	std::cout << "Cure string constructor called\n";
 }
 
 Cure	&Cure::operator=(Cure const &cure)
