@@ -14,11 +14,12 @@
 
 int main()
 {
-	Bureaucrat ab("Jeff", 123);
-	Bureaucrat cd("DEff", 151);
-	Bureaucrat ef("DEff", -151);
-	ab.decrementGrade();
-	std::cout << ab;
-	std::cout << cd;
-	std::cout << ef;
+	AForm a;
+	// Bureaucrat ab("Jeff", 123);
+	// Bureaucrat cd("DEff", 151);
+	// Bureaucrat ef("DEff", -151);
+	// ab.decrementGrade();
+	// Form ff("classic", 23, 54);
+	// ab.signForm(ff);
+	// Form ef("name", 21, 222);
 }
