@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:06 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/23 20:33:17 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/24 20:07:08 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,11 @@ Form::Form(std::string name, int grade_signed, int grade_exec) : _name(name), _s
 	catch(GradeTooHighException &e)
 	{
 		std::cerr << e.what();
-		//this->_grade_signed = 1;
 	}
 	catch(GradeTooLowException &e)
 	{
 		std::cerr << e.what();
-	//	this->_grade_signed = 150;
 	}
-	// try
-	// {
-	// 	if (grade_exec > 150)
-	// 		throw GradeTooLowException();
-	// 	else if (grade_exec < 1)
-	// 		throw GradeTooHighException();
-	// }
-	// catch(GradeTooHighException &e)
-	// {
-	// 	std::cerr << e.what();
-	// 	this->_grade_exec = 1;
-	// }
-	// catch(GradeTooLowException &e)
-	// {
-	// 	std::cerr << e.what();
-	// 	this->_grade_exec = 150;
-	// }
 }
 
 Form::~Form()

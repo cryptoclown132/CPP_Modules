@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 20:01:40 by jkroger           #+#    #+#             */
+/*   Updated: 2023/05/24 20:01:40 by jkroger          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef HARL_HPP
 # define HARL_HPP
 # include <iostream>
@@ -6,10 +18,10 @@
 class Harl
 {
 private:
-	void	debug();
-	void	info();
-	void	warning();
-	void	error();
+	void	_debug();
+	void	_info();
+	void	_warning();
+	void	_error();
 public:
 	void complain(std::string level);
 	Harl();

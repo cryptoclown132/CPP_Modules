@@ -4,7 +4,7 @@ SRC = ${shell echo *.cpp}
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-HEADER = file_replace.hpp
+HEADER = FileData.hpp
 
 CC =  c++
 
