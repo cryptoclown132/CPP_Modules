@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:10:38 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/24 21:15:50 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/24 23:53:15 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 }
 
 
-void	PresidentialPardonForm::execute() const
-{
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	
 }

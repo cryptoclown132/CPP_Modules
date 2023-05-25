@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:00 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/24 20:38:39 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/25 00:33:30 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class AForm
 		bool				_signed;
 		const int			_grade_signed;
 		const int			_grade_exec;
+		std::string			_target;
 	public:
 		class GradeTooHighException : public std::exception
 		{
@@ -43,8 +44,9 @@ class AForm
 		bool				getSigned() const;
 		const int			getGradeSigned() const;
 		const int			getGradeExec() const;
-		void		beSigned(Bureaucrat const &bureaucrat);
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		std::string			getTarget() const;
+		void				beSigned(Bureaucrat const &bureaucrat);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 };
 std::ostream	&operator<<(std::ostream &out, Form const &form);
 #endif

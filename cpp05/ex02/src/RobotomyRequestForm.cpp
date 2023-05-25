@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:05:03 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/24 21:08:58 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/24 23:55:36 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "robo destructor calles\n";
 }		
 	
-RobotomyRequestForm	RobotomyRequestForm::operator=(RobotomyRequestForm const &robo)
+RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &robo)
 {
 	if (this == &robo)
 		return *this;
@@ -36,4 +36,7 @@ RobotomyRequestForm	RobotomyRequestForm::operator=(RobotomyRequestForm const &ro
 }
 
 
-void	execut() const;
+
+void	RobotomyRequestForm::execut(Bureaucrat const & executor) const{
+	
+}

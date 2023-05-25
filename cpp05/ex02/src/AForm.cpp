@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:06 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/24 20:38:09 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/25 00:35:19 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,25 @@ AForm	&AForm::operator=(AForm const &form)
 {
 	if (this == &form)
 		return *this;
-	this->_signed = form.getSigned();
+	_signed = form.getSigned();
 	return *this;
 }
 
 
 const std::string	AForm::getName() const{
-	return this->_name;
+	return _name;
 }
 
 bool	AForm::getSigned() const{
-	return this->_signed;
+	return _signed;
 }
 
 const int	AForm::getGradeSigned() const{
-	return this->_grade_signed;
+	return _grade_signed;
 }
 
 const int	AForm::getGradeExec() const{
-	return this->_grade_exec;
+	return _grade_exec;
 }
 
 std::ostream	&operator<<(std::ostream &out, AForm const &form)
@@ -89,12 +89,12 @@ const char	*AForm::GradeTooLowException::what() const throw(){
 	return "Grade too Low!\n";
 }
 
-void	Form::beSigned(Bureaucrat const &bureaucrat)
+void	AForm::beSigned(Bureaucrat const &bureaucrat)
 {
 	try
 	{
-		if (bureaucrat.getGrade() > this->getGradeSigned())
-			this->_signed = true;
+		if (bureaucrat.getGrade() > getGradeSigned())
+			_signed = true;
 		else
 			throw GradeTooLowException();
 	}
@@ -102,4 +102,8 @@ void	Form::beSigned(Bureaucrat const &bureaucrat)
 	{
 		std::cerr << e.what();
 	}
+}
+
+std::string		AForm::getTarget() const{
+	return _target;
 }

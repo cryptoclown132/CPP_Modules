@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 20:52:14 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/24 20:57:10 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/25 00:36:09 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	//whatever
 }
 
-void	execute() const{
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
+	std::ofstream	out_file(getTarget() + "_shrubbery");
+
 	
 }

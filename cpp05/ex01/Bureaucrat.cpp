@@ -111,5 +111,5 @@ void	Bureaucrat::signForm(Form &form) const{
 		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
 		return ;
 	}
-	std::cout << this->_name << " signed " << form.getName() << std::endl;
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
 }
