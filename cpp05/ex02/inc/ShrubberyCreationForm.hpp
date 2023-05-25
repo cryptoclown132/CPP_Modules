@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 20:43:09 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/25 00:28:22 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:23:00 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 class  ShrubberyCreationForm : public AForm
 {
 	private:
-		std::string	_target;
+
 	public:
 		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &shrub);
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &shrub);

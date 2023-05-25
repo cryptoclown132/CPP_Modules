@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 int main()
 {
-	AForm a;
 	// Bureaucrat ab("Jeff", 123);
 	// Bureaucrat cd("DEff", 151);
 	// Bureaucrat ef("DEff", -151);
@@ -22,4 +22,10 @@ int main()
 	// Form ff("classic", 23, 54);
 	// ab.signForm(ff);
 	// Form ef("name", 21, 222);
+
+	PresidentialPardonForm form("aim");
+	PresidentialPardonForm copy(form);
+	std::cout << "target: " << copy.getTarget() << "\n";
+	PresidentialPardonForm tf = copy;
+	std::cout << "target2: " << tf.getTarget() << "\n";
 }

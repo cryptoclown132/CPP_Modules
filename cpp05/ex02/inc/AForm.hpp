@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:00 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/25 00:33:30 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/05/25 20:29:12 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,15 @@ class AForm
 			public:
 				virtual const char	*what() const throw();
 		};
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
 		AForm();
 		AForm(AForm const &form);
-		AForm(std::string name, int grade_signed, int grade_exec);
-		~AForm();
+		AForm(std::string name, int grade_signed, int grade_exec, std::string target);
+		virtual ~AForm();
 		AForm				&operator=(AForm const &form);
 		const std::string	getName() const;
 		bool				getSigned() const;
@@ -47,6 +52,7 @@ class AForm
 		std::string			getTarget() const;
 		void				beSigned(Bureaucrat const &bureaucrat);
 		virtual void		execute(Bureaucrat const & executor) const = 0;
+		bool				execRequierments(Bureaucrat const &bureau) const;
 };
-std::ostream	&operator<<(std::ostream &out, Form const &form);
+std::ostream	&operator<<(std::ostream &out, AForm const &form);
 #endif
