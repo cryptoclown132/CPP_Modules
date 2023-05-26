@@ -23,6 +23,11 @@ HumanB::~HumanB()
 }
 
 void	HumanB::attack() const{
+	if (this->getWeapon()->get_type().empty())
+	{
+		std::cout << this->getName() << " has no weapon to attack\n";
+		return ;
+	}
 	std::cout << this->getName() << " attacks with their " << this->getWeapon()->get_type() << std::endl;
 }
 

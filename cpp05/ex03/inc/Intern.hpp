@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 20:41:28 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/26 14:45:54 by jkroger          ###   ########.fr       */
+/*   Created: 2023/05/26 16:09:22 by jkroger           #+#    #+#             */
+/*   Updated: 2023/05/26 16:56:09 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
-# include "AForm.hpp"
+#ifndef INTERN_HPP
+# define INTERN_HPP
+# include "../inc/AForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class Intern
 {
 	private:
 
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(RobotomyRequestForm const &robo);
-		~RobotomyRequestForm();
-		RobotomyRequestForm	&operator=(RobotomyRequestForm const &robo);
-		void	execute(Bureaucrat const &executor) const;
+		Intern();
+		Intern(Intern const &intern);
+		~Intern();
+		Intern	&operator=(Intern const &intern);
+		AForm	*makeForm(std::string form_name, std::string target);
+		AForm	*makePresident(std::string target);
+		AForm	*makeRobot(std::string target);
+		AForm	*makeShrub(std::string target);
 };
 
 #endif
