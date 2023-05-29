@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/28 20:00:01 by jkroger           #+#    #+#             */
+/*   Updated: 2023/05/28 20:45:53 by jkroger          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Fixed.hpp"
 
@@ -34,19 +45,19 @@ Fixed	&Fixed::operator=(Fixed const &fixed)
 }
 
 Fixed::Fixed(const int int_point){
-	this->_fixed_point = int_point << this->_frac_bits;
+	this->_fixed_point = int_point << Fixed::_frac_bits;
 }
 		
 Fixed::Fixed(const float float_point){
-	this->_fixed_point = roundf(float_point * (1 << this->_frac_bits));
+	this->_fixed_point = roundf(float_point * (1 << Fixed::_frac_bits));
 }
 
 int	Fixed::toInt(void) const{
-	return this->_fixed_point >> this->_frac_bits;
+	return this->_fixed_point >> Fixed::_frac_bits;
 }
 
 float	Fixed::toFloat(void) const{
-	return (float)this->_fixed_point / (float)(1 << this->_frac_bits);
+	return (float)this->_fixed_point / (float)(1 << Fixed::_frac_bits);
 }
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
