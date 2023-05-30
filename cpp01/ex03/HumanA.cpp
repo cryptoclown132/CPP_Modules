@@ -12,7 +12,7 @@
 
 # include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon_type) : _name(name), _weapon(&weapon_type)
+HumanA::HumanA(std::string name, Weapon &weapon_type) : _name(name), _weapon(weapon_type)
 {
 }
 
@@ -21,13 +21,13 @@ HumanA::~HumanA()
 }
 
 void	HumanA::attack() const{
-	std::cout << this->getName() << " attacks with their " << this->getWeapon()->get_type() << std::endl;
+	std::cout << this->getName() << " attacks with their " << this->getWeapon().get_type() << std::endl;
 }
 
 std::string	HumanA::getName() const{
 	return this->_name;	
 }
 
-Weapon	*HumanA::getWeapon() const{
+Weapon	&HumanA::getWeapon() const{
 	return this->_weapon;
 }
