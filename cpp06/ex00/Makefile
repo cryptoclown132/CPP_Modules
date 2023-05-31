@@ -1,4 +1,4 @@
-NAME = intern
+NAME = converter
 
 SRC = ${shell echo *.cpp}
 
