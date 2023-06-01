@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 19:23:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/22 18:41:22 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/01 18:27:42 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ void	PhoneBook::add_contact(int index)
 	std::string	tmp;
 
 	std::cout << "Enter your first name: ";
-	std::cin >> tmp;
+	getline(std::cin, tmp);
 	person.setFirstName(tmp);
 	std::cout << "Enter your last name: ";
-	std::cin >> tmp; 
+	getline(std::cin, tmp); 
 	person.setLastName(tmp);
 	std::cout << "Enter your nickname: ";
-	std::cin >> tmp; 
+	getline(std::cin, tmp); 
 	person.setNickName(tmp);
 	std::cout << "Enter your number: ";
-	std::cin >> tmp;
+	getline(std::cin, tmp);
 	person.setNumber(tmp);
 	std::cout << "Enter your secret: ";
-	std::cin >> tmp; 
+	getline(std::cin, tmp); 
 	person.setSecret(tmp);
 }
 

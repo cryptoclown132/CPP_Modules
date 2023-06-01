@@ -8,7 +8,7 @@ HEADER = ${shell echo *.hpp}
 
 CC =  c++
 
-FLAGS = -Werror -Wextra -Wall -std=c++98 -pedantic
+FLAGS = -Werror -Wextra -Wall -std=c++98 -pedantic #-Wshadow -Wno-shadow
 
 all: $(NAME)
 

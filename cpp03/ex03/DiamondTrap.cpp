@@ -54,3 +54,8 @@ void	DiamondTrap::setDiamondName(std::string name)
 {
 	this->_name = name;
 }
+
+void	DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
+}

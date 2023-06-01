@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:47:04 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/31 18:08:24 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/01 20:53:52 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ScalarConverter
 		bool	_isFloat(std::string convert);
 		bool	_isDouble(std::string convert);
 		void	_specific_cases(std::string convert);
+		bool	_error(std::string convert);
 	public:
 		ScalarConverter();
 		ScalarConverter(ScalarConverter const &converter);

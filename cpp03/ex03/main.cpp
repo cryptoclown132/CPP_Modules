@@ -22,7 +22,11 @@ int	main(void)
 // 	std::cout << "name: " << frog.getName() << std::endl;
 
 	DiamondTrap diamond("trap");
-	diamond.attack("snap");//wrong name
+	diamond.attack("snap");
 	diamond.whoAmI();
 	std::cout << "name: " << diamond.getDiamondName() << std::endl;
+	std::cout << "Attack:" << diamond.getAttackDamage() << std::endl;
+	std::cout << "Hit: " << diamond.getHitPoints() << std::endl;
+	std::cout << "Energy: " << diamond.getEnergyPoints() << std::endl;
+	std::cout << "Clap name: " << diamond.getName() << std::endl;
 }

@@ -3,28 +3,28 @@
 
 ClapTrap::ClapTrap(void) : _name("default name"), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << "Constructor called\n";
+	std::cout << "Clap constructor called\n";
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << "Constructor with name called.\n";
+	std::cout << "Clap constructor with name called.\n";
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called.\n";
+	std::cout << "Clap destructor called.\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap const &clap)
 {
-	std::cout << "Copy constructor called.\n";
+	std::cout << "Clap copy constructor called.\n";
 	*this = clap;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &clap)
 {
-	std::cout << "Assignment operator called\n";
+	std::cout << "Clap assignment operator called\n";
 	if (this == &clap)
 		return *this;
 	this->_name = clap.getName();
