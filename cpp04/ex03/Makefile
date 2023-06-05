@@ -1,4 +1,4 @@
-NAME = amateria
+NAME = materia
 
 SRC = ${shell echo src/*.cpp}
 
@@ -11,13 +11,12 @@ CC =  c++
 FLAGS = -Werror -Wextra -Wall -std=c++98 -pedantic
 
 all: $(NAME)
-	mkdir obj && mv *.o obj/
 
 $(NAME) : $(OBJ) $(HEADER)
 	$(CC) $(FLAGS) $(OBJ)  -o $(NAME)
 
 clean:
-	cd obj/ && rm -f $(OBJ) && cd .. && rmdir obj
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

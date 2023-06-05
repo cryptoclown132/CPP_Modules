@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 09:26:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:26:01 by jkroger          ###   ########.fr       */
+/*   Created: 2023/06/02 10:03:41 by jkroger           #+#    #+#             */
+/*   Updated: 2023/06/02 10:03:41 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
-# include "AMateria.hpp"
+#include "Serializer.hpp"
+#include <iostream>
 
-class ICharacter
+int	main()
 {
-	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
-};
-
-#endif
+	Serializer	seri;
+	Data		serialized;
+	serialized.name = "jon";
+	serialized.age = 30;
+	uintptr_t i = seri.serialize(&serialized);
+	Data	*deserialized = seri.deserialize(i);
+	std::cout << "name: " << deserialized->name << std::endl;
+	std::cout << "age: " << deserialized->age << std::endl;
+}

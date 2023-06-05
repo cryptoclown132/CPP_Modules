@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 09:26:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:26:01 by jkroger          ###   ########.fr       */
+/*   Created: 2023/06/02 09:55:20 by jkroger           #+#    #+#             */
+/*   Updated: 2023/06/02 09:55:20 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
-# include "AMateria.hpp"
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
+# include <cstdint>
+# include <string>
 
-class ICharacter
+typedef struct Data{
+	int			age;
+	std::string	name;
+}Data;
+
+class  Serializer
 {
+	private:
+
 	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		Serializer();
+		Serializer(Serializer const &serial);
+		~Serializer();
+		Serializer	&operator=(Serializer const &serial);
+		uintptr_t serialize(Data* ptr);
+		Data* deserialize(uintptr_t raw);
 };
 
 #endif

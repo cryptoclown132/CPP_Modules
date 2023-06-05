@@ -1,10 +1,10 @@
 NAME = animal
 
-SRC = ${shell echo *.cpp}
+SRC = ${shell echo src/*.cpp}
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 
-HEADER = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+HEADER = ${shell echo inc/*.hpp}
 
 CC =  c++
 

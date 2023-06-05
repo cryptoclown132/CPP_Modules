@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 09:26:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:26:01 by jkroger          ###   ########.fr       */
+/*   Created: 2023/06/03 12:13:32 by jkroger           #+#    #+#             */
+/*   Updated: 2023/06/03 12:13:32 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
-# include "AMateria.hpp"
+#include "Base.hpp"
 
-class ICharacter
+int	main()
 {
-	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
-};
-
-#endif
+	Base *newGen;
+	
+	newGen = generate();
+	identify(newGen);
+	
+	identify(&(*newGen));
+	std::cout << std::endl;
+	return (0);
+}

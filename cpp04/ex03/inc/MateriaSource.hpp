@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/05 09:26:13 by jkroger           #+#    #+#             */
+/*   Updated: 2023/06/05 09:26:13 by jkroger          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 # include "IMateriaSource.hpp"

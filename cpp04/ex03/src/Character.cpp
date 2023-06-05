@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/05 09:26:29 by jkroger           #+#    #+#             */
+/*   Updated: 2023/06/05 09:34:27 by jkroger          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "Character.hpp"
+#include "../inc/Character.hpp"
 
 Character::Character() : _name("Default character")
 {

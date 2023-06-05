@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/05 09:26:57 by jkroger           #+#    #+#             */
+/*   Updated: 2023/06/05 09:34:51 by jkroger          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "MateriaSource.hpp"
+#include "../inc/MateriaSource.hpp"
 
 MateriaSource::MateriaSource() : _name("Default materia_source")
 {
