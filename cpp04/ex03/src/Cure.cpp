@@ -32,13 +32,14 @@ Cure::Cure(std::string const & type) : AMateria(type)
 {
 	std::cout << "Cure string constructor called\n";
 }
-
+//fix this
 Cure	&Cure::operator=(Cure const &cure)
 {
 	if (this == &cure)
 		return *this;
 
 	*this = cure;
+	return *this;
 }
 
 void	Cure::use(ICharacter& target)

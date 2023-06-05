@@ -18,8 +18,16 @@ int	main()
 	
 	newGen = generate();
 	identify(newGen);
-	
-	identify(&(*newGen));
-	std::cout << std::endl;
-	return (0);
+	identify(*newGen);
+	delete newGen;
+
+	// newGen = generate();
+	// identify(newGen);
+	// identify(&(*newGen));
+	// delete	newGen;
+
+	// newGen = generate();
+	// identify(newGen);
+	// identify(&(*newGen));
+	// delete	newGen;
 }

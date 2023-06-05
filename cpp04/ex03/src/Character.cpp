@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:26:29 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:34:27 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:11:02 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ Character	&Character::operator=(Character const &character)
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = character.getMateria(i);
 	this->_name = character.getName();
+	return *this;
 }
 
 AMateria	*Character::getMateria(int index) const{
 	if (index >= 0 && index <= 3)
 		return this->_inventory[index];
+	return NULL;
 }
 
 std::string const	&Character::getName() const{

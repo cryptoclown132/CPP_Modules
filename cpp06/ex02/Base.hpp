@@ -14,6 +14,7 @@
 # define BASE_HPP
 # include <cstdlib>
 # include <iostream>
+# include <ctime>
 
 class Base
 {
@@ -21,11 +22,20 @@ class Base
 		virtual		~Base();
 };
 
-class A : public Base{};
+class A : public Base
+{
+	~A();
+};
 
-class B : public Base{};
+class B : public Base
+{
+	~B();
+};
 
-class C : public Base{};
+class C : public Base
+{
+	~C();
+};
 
 Base	*generate(void);
 void	identify(Base* p);
