@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:26:57 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 12:14:55 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 20:19:52 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ AMateria	*MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i]->getType() == type)
+		if (this->_inventory[i] && this->_inventory[i]->getType() == type)
 			return this->_inventory[i]->clone();
 	}
 	return 0;

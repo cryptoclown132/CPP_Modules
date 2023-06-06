@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:21:28 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:21:29 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 19:30:50 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Dog : public Animal
 	public:
 		Dog();
 		Dog(Dog const &dog);
+		Dog(std::string name);
 		~Dog();
 		Dog			&operator=(Dog const &dog);
 		void		makeSound() const;

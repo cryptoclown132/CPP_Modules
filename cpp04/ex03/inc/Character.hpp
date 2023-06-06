@@ -14,7 +14,7 @@
 # define CHARACTER_HPP
 # include "ICharacter.hpp"
 
-class Character : ICharacter
+class Character : public ICharacter
 {
 	private:
 		std::string	_name;

@@ -17,7 +17,7 @@ Cure::Cure() : AMateria()
 	std::cout << "Cure constructor called\n";
 }
 
-Cure::Cure(Cure const &cure)
+Cure::Cure(Cure const &cure) : AMateria(cure)
 {
 	std::cout << "Cure copy constructor called\n";
 	*this = cure;

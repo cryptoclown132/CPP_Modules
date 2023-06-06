@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:11:44 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:11:45 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 17:10:18 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ Cat::Cat() : Animal()
 	std::cout << "Cat constructor called\n";
 }
 
-Cat::Cat(Cat const &cat)
+Cat::Cat(Cat const &cat) : Animal(cat)
 {
 	std::cout << "Cat copy constructor called\n";
 	*this = cat;
+}
+
+Cat::Cat(std::string name) : Animal(name)
+{
+	std::cout << "Cat copy constructor with arg called\n";
 }
 
 Cat::~Cat()

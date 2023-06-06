@@ -14,6 +14,10 @@
 
 int	main(void)
 {
+	{
+		ClapTrap d("sa");
+	}
+
 	ClapTrap	clap("clappy");
 	ClapTrap	trap("trappy");
 

@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:22:23 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:22:30 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 19:31:28 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@ Cat::Cat() : Animal()
 	this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const &cat)
+Cat::Cat(Cat const &cat) : Animal(cat)
 {
 	std::cout << "Cat copy constructor called\n";
 	*this = cat;
+}
+
+Cat::Cat(std::string name) : Animal(name)
+{
+	std::cout << "Cat copy constructor with arg called\n";
 }
 
 Cat::~Cat()
@@ -35,9 +40,7 @@ Cat	&Cat::operator=(Cat const &cat)
 	if (this == &cat)
 		return *this;
 	this->_type = cat.getType();
-	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		this->_brain->setIdeas(i, cat._brain->getIdeas(i));
+	this->_brain = new Brain(*cat._brain);
 	return *this;
 }
 

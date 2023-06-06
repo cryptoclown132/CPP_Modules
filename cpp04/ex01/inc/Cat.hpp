@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:16:20 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:16:21 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 17:13:33 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Cat : public Animal
 	public:
 		Cat();
 		Cat(Cat const &cat);
+		Cat(std::string name);
 		~Cat();
 		Cat			&operator=(Cat const &cat);
 		void		makeSound() const;

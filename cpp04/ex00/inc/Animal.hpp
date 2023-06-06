@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:14:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:14:02 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 14:44:12 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 		Animal();
 		Animal(std::string type);
 		Animal(Animal const &animal);
-		~Animal();
+		virtual ~Animal();
 		Animal	&operator=(Animal const &animal);
 		void		setType(std::string type);
 		std::string	getType(void) const;

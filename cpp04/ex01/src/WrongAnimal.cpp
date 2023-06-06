@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:18:50 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:18:57 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 17:21:35 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ WrongAnimal::WrongAnimal(WrongAnimal const &wrong_animal)
 {
 	std::cout << "WrongAnimal copy constructor called\n";
 	*this = wrong_animal;
+}
+
+WrongAnimal::WrongAnimal(std::string type) : _wrong_type(type)
+{
+	std::cout << "WrongAnimal constructor with arg called\n";
 }
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &wrong_animal)

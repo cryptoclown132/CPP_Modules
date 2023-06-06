@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:17:58 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 09:18:05 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 19:05:41 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ Dog::Dog() : Animal()
 	this->_brain = new Brain();
 }
 
-Dog::Dog(Dog const &dog)
+Dog::Dog(Dog const &dog) : Animal(dog)
 {
 	std::cout << "Dog copy constructor called\n";
 	*this = dog;
+}
+
+Dog::Dog(std::string name) : Animal(name)
+{
+	std::cout << "Dog copy constructor with arg called\n";
+	this->_brain = new Brain();
 }
 
 Dog::~Dog()
@@ -35,9 +41,7 @@ Dog	&Dog::operator=(Dog const &dog)
 	if (this == &dog)
 		return	*this;
 	this->_type = dog.getType();
-	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		this->_brain->setIdeas(i, dog._brain->getIdeas(i));
+	this->_brain = new Brain(*dog._brain);
 	return	*this;
 }
 

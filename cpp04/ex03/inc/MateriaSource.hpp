@@ -14,7 +14,7 @@
 # define MATERIASOURCE_HPP
 # include "IMateriaSource.hpp"
 
-class MateriaSource : IMateriaSource
+class MateriaSource : public IMateriaSource
 {
 	private:
 		std::string	_name;

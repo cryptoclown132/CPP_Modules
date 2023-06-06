@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:26:29 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/05 12:11:02 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/06 20:21:20 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ void	Character::unequip(int idx)
 		
 void	Character::use(int idx, ICharacter &target)
 {
-	if (idx >= 0 && idx <= 3)
+	if (idx >= 0 && idx <= 3 && this->_inventory[idx])
 		this->_inventory[idx]->use(target); 
 }

@@ -17,7 +17,7 @@ Ice::Ice() : AMateria()
 	std::cout << "Ice constructor called\n";
 }
 
-Ice::Ice(Ice const &ice)
+Ice::Ice(Ice const &ice) : AMateria(ice)
 {
 	std::cout << "Ice copy constructor called\n";
 	*this = ice;
