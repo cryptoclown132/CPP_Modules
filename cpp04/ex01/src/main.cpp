@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:18:13 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 19:23:21 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/08 15:02:09 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ int main()
 		animales[1] = new Dog();
 		animales[2] = new Cat();
 		animales[3] = new Dog();
-		animales[0]->makeSound();
-		animales[1]->makeSound();
-		animales[2]->makeSound();
-		animales[3]->makeSound();
+		for (int i = 0; i < 4; i++)
+			animales[i]->makeSound();
 		for (int i = 0; i < 4; i++)
 			delete animales[i];
 	}
@@ -53,4 +51,36 @@ int main()
 		std::cout << "Bluecat: " << bluecat.getIdeas(6) << std::endl;
 		std::cout << "Cat: " << cat.getIdeas(6) << std::endl;
 	}
+
+	std::cout << partition << std::endl;
+	std::cout << "DOG BRAIN\n";
+	std::cout << partition << std::endl;
+	{
+		Dog dog;
+		dog.setIdeas(69, "eat.sleep.repeat");
+		std::cout << dog.getIdeas(69) << std::endl;
+		for (int i = 0; i < 50; i++)
+			dog.setIdeas(i, "no brainer");
+		Dog dawg(dog);
+		for (int i = 0; i < 100; i++)
+			std::cout << dawg.getIdeas(i) << std::endl;	
+		dawg.setIdeas(6, "run");
+		std::cout << "Bluecat: " << dawg.getIdeas(6) << std::endl;
+		std::cout << "Cat: " << dog.getIdeas(6) << std::endl;
+		dog.setIdeas(101, "ad");
+		dog.getIdeas(101);
+	}
+
+	// Dog dog;
+	// std::cout << partition << std::endl;
+	// std::cout << "before scope\n";
+	// std::cout << partition << std::endl;
+	// dog.setIdeas(35, "get some food");
+	// {
+	// 	Dog test(dog);
+	// }
+	// std::cout << partition << std::endl;
+	// std::cout << "after scope\n";
+	// std::cout << partition << std::endl;
+	// std::cout << dog.getIdeas(35) << std::endl;
 }

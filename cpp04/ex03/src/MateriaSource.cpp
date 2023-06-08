@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:26:57 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/07 20:13:59 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/08 17:30:32 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	MateriaSource::learnMateria(AMateria *m)
 		}
 	}
 	std::cout << "Iventory full!\n";
-	//delete m;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const & type)

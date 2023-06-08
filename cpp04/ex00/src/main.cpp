@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:12:10 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 14:32:57 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:03:23 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ int main()
 	std::cout << partition << std::endl;
 	{
 		WrongAnimal* wrong_cat = new WrongCat();
+		WrongCat cat;
 		wrong_cat->setWrongType("wrong cat");
 		std::cout << wrong_cat->getWrongType() << std::endl;
 		wrong_cat->makeWrongSound();
+		cat.makeWrongSound();
 		delete wrong_cat;
 	}
 }

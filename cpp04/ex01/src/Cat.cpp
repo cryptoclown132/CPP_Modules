@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:17:32 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 19:05:21 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/08 14:59:19 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Cat::Cat() : Animal()
 Cat::Cat(Cat const &cat) : Animal(cat)
 {
 	std::cout << "Cat copy constructor called\n";
+	this->_brain = NULL;
 	*this = cat;
 }
 
@@ -41,6 +42,8 @@ Cat	&Cat::operator=(Cat const &cat)
 	if (this == &cat)
 		return *this;
 	this->_type = cat.getType();
+	if (this->_brain != NULL)
+		delete this->_brain;
 	this->_brain = new Brain(*cat._brain);
 	return *this;
 }

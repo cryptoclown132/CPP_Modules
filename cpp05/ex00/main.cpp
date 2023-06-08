@@ -16,9 +16,24 @@ int main()
 {
 	Bureaucrat ab("Jeff", 123);
 	Bureaucrat cd("DEff", 151);
-	Bureaucrat ef("DEff", -151);
-	ab.decrementGrade();
+	Bureaucrat ef("mEff", -151);
+	try
+	{
+		ab.decrementGrade();
+		cd.decrementGrade();
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << e.what();
+	}
+	// catch(GradeTooLowException &e)
+	// {
+	// 	std::cerr << e.what();
+	// }
+
 	std::cout << ab;
 	std::cout << cd;
 	std::cout << ef;
+	cd.incrementGrade();
+	std::cout << cd;
 }

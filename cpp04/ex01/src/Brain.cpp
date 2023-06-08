@@ -54,7 +54,7 @@ std::string	Brain::getIdeas(int index)
 	if (index > 99 || index < 0)
 	{
 		std::cout << "Wrong index has to be between 0 and 99!\n";
-		return NULL;
+		return "";
 	}
 	return this->_ideas[index];
 }

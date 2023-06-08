@@ -31,6 +31,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	std::cout << "Bureaucrat constructor with args called\n";
+	std::cout << "grade: " << grade << std::endl;
 	try
 	{
 		if (grade > 150)
@@ -70,14 +71,16 @@ const std::string	Bureaucrat::getName() const{
 
 void	Bureaucrat::incrementGrade()
 {
-	if (this->_grade != 1)
-		this->_grade--;
+	if (this->_grade <= 1)
+		throw Bureaucrat::GradeTooHighException();
+	this->_grade--;
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	if (this->_grade != 150)
-		this->_grade++;
+	if (this->_grade >= 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade++;
 }
 
 std::ostream & operator<<(std::ostream &out, Bureaucrat const &bureaucrat)

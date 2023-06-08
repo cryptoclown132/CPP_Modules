@@ -15,8 +15,9 @@
 Brain::Brain()
 {
 	std::cout << "Brain constructor called\n";
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = "idea";
 }
-
 
 Brain::Brain(Brain const &brain)
 {
@@ -29,14 +30,14 @@ Brain::~Brain()
 	std::cout << "Brain destructor called\n";
 }
 
-// Brain	&Brain::operator=(Brain const &brain)
-// {
-// 	if (this == &brain)
-// 		return *this;
-// 	for (int i = 0; i < 100; i++)
-// 		this->_ideas[i] = brain._ideas[i];
-// 	return *this;
-// }
+Brain	&Brain::operator=(Brain const &brain)
+{
+	if (this == &brain)
+		return *this;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = brain._ideas[i];
+	return *this;
+}
 
 void	Brain::setIdeas(int index, std::string idea)
 {
@@ -53,19 +54,7 @@ std::string	Brain::getIdeas(int index)
 	if (index > 99 || index < 0)
 	{
 		std::cout << "Wrong index has to be between 0 and 99!\n";
-		return NULL;
+		return "";
 	}
 	return this->_ideas[index];
-}
-
-
-
-
-
-
-Brain & Brain::operator=(Brain const &rhs) {
-
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = rhs._ideas[i];
-	return (*this);
 }

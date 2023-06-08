@@ -22,28 +22,25 @@ int main()
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
 	std::cout << "name: " << me->getName() << std::endl;
+	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
-	// std::cout << "Where Seg fault !!!!!!!!!!!!!!!!!!!!!!!!!!\n";
 	me->use(0, *bob);
 	me->use(1, *bob);
 
+	
+	// me->unequip(1);
+	// me->use(1, *bob);
 
-	MateriaSource a;
-	MateriaSource b(a);
-
-
-	// Character babo("king");
-	// tmp = src->createMateria("ice");
-	// babo.equip(tmp);
-	// babo.use(0, *bob);
-
+	// delete tmp;
 	delete bob;
 	delete me;
 	delete src;
+
+	MateriaSource a;
+	MateriaSource b(a);
 	return 0;
 }

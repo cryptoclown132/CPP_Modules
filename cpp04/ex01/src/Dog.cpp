@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:17:58 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 19:05:41 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/08 15:00:03 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Dog::Dog() : Animal()
 Dog::Dog(Dog const &dog) : Animal(dog)
 {
 	std::cout << "Dog copy constructor called\n";
+	this->_brain = NULL;
 	*this = dog;
 }
 
@@ -41,6 +42,8 @@ Dog	&Dog::operator=(Dog const &dog)
 	if (this == &dog)
 		return	*this;
 	this->_type = dog.getType();
+	if (this->_brain != NULL)
+		delete this->_brain;
 	this->_brain = new Brain(*dog._brain);
 	return	*this;
 }

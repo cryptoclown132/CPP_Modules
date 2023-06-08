@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:14:24 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 17:17:49 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:01:30 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongAnimal
 		WrongAnimal(std::string type);
 		WrongAnimal	&operator=(WrongAnimal const &wrong_animal);
 		virtual ~WrongAnimal();
-		virtual void	makeWrongSound() const;
+		void	makeWrongSound() const;
 		std::string		getWrongType(void) const;
 		void			setWrongType(std::string wrong_type);
 };
