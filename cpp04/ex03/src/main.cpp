@@ -23,6 +23,7 @@ int main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
+	std::cout << "name: " << me->getName() << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
@@ -30,6 +31,17 @@ int main()
 	// std::cout << "Where Seg fault !!!!!!!!!!!!!!!!!!!!!!!!!!\n";
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+
+	MateriaSource a;
+	MateriaSource b(a);
+
+
+	// Character babo("king");
+	// tmp = src->createMateria("ice");
+	// babo.equip(tmp);
+	// babo.use(0, *bob);
+
 	delete bob;
 	delete me;
 	delete src;

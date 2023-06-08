@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:26:29 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 20:21:20 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/07 20:12:37 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,20 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(Character const &character)
 {
-
 	std::cout << "Character copy constructor called\n";
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 	*this = character;
 }
 
 Character::~Character()
 {
 	std::cout << "Character destructor called\n";
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
 }
 
 Character	&Character::operator=(Character const &character)
@@ -43,7 +49,14 @@ Character	&Character::operator=(Character const &character)
 	if (this == &character)
 		return *this;
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = character.getMateria(i);
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (character._inventory[i])
+			this->_inventory[i] = character._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
+	}
 	this->_name = character.getName();
 	return *this;
 }
@@ -67,7 +80,7 @@ void	Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i] != NULL)
+		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
 			return ;
@@ -76,10 +89,9 @@ void	Character::equip(AMateria* m)
 	std::cout << "Iventory full!\n";
 }
 
-//check for mem leaks
 void	Character::unequip(int idx)
 {
-	if (idx >= 0 && idx <= 3)
+	if (idx >= 0 && idx <= 3 && this->_inventory[idx])
 		this->_inventory[idx] = NULL;
 }
 		

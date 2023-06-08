@@ -12,7 +12,7 @@
 
 #include "../inc/Ice.hpp"
 
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "Ice constructor called\n";
 }
@@ -37,6 +37,7 @@ Ice	&Ice::operator=(Ice const &ice)
 {
 	if (this == &ice)
 		return *this;
+	this->_type = ice.getType();
 	return *this;
 }
 

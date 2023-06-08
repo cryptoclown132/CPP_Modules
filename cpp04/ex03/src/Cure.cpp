@@ -12,7 +12,7 @@
 
 #include "../inc/Cure.hpp"
 
-Cure::Cure() : AMateria()
+Cure::Cure() : AMateria("cure")
 {
 	std::cout << "Cure constructor called\n";
 }
@@ -32,13 +32,12 @@ Cure::Cure(std::string const & type) : AMateria(type)
 {
 	std::cout << "Cure string constructor called\n";
 }
-//fix this
+
 Cure	&Cure::operator=(Cure const &cure)
 {
 	if (this == &cure)
 		return *this;
-
-	*this = cure;
+	this->_type = cure.getType();
 	return *this;
 }
 

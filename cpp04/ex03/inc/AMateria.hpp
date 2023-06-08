@@ -30,7 +30,6 @@ class AMateria
 		AMateria			&operator=(AMateria const &amateria);
 		std::string const	&getType() const;
 		void				setType(std::string amateria);
-
 		virtual AMateria*	clone() const = 0;
 		virtual void		use(ICharacter& target);
 };
