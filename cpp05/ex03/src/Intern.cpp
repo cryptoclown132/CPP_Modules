@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:14:37 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/26 17:11:42 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/09 19:35:43 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ Intern	&Intern::operator=(Intern const &intern)
 	return *this;	
 }
 
-AForm	*Intern::makePresident(std::string target)
+AForm	*Intern::_makePresident(std::string target)
 {
 	return new PresidentialPardonForm(target);
 }
 
-AForm	*Intern::makeRobot(std::string target)
+AForm	*Intern::_makeRobot(std::string target)
 {
 	return new RobotomyRequestForm(target);
 }
 
-AForm	*Intern::makeShrub(std::string target)
+AForm	*Intern::_makeShrub(std::string target)
 {
 	return new ShrubberyCreationForm(target);
 }
@@ -55,7 +55,7 @@ AForm	*Intern::makeShrub(std::string target)
 AForm	*Intern::makeForm(std::string form_name, std::string target)
 {
 	std::string	forms[3] = {"PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
-	AForm* (Intern::*func[]) (std::string) = {&Intern::makePresident, &Intern::makeRobot, &Intern::makeShrub};
+	AForm* (Intern::*func[]) (std::string) = {&Intern::_makePresident, &Intern::_makeRobot, &Intern::_makeShrub};
 	for (int i = 0; i < 3; i++)
 	{
 		if (form_name == forms[i])

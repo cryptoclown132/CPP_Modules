@@ -18,15 +18,49 @@
 
 int main()
 {
-	Intern jeff;
-	AForm *d = jeff.makeForm("PresidentialPardonForm", "kill");
-	Bureaucrat büro;
-	for (int i = 0; i < 75; i++)
-		büro.incrementGrade();
-	for (int i = 0; i < 4; i++)
-		büro.decrementGrade();
-	std::cout << "wtf\n";
-	büro.signForm(*d);
-	d->execute(büro);
-	delete d;
+	std::string partition(50, '-');
+
+	Bureaucrat büro("Büro", 75);
+	std::cout << partition << std::endl;
+	std::cout << "ROBOTOMYREQUESTFORM\n";
+	std::cout << partition << std::endl;
+	{
+		Intern intern;
+		AForm *a = intern.makeForm("RobotomyRequestForm", "kill");
+		for (int i = 0; i < 75; i++)
+			büro.incrementGrade();
+		for (int i = 0; i < 4; i++)
+			büro.decrementGrade();
+		büro.signForm(*a);
+		a->execute(büro);
+		delete a;
+	}
+	std::cout << partition << std::endl;
+	std::cout << "PRESIDENTIALPARDONFORM\n";
+	std::cout << partition << std::endl;
+	{
+		Intern jeff;
+		AForm *d = jeff.makeForm("PresidentialPardonForm", "dance");
+		for (int i = 0; i < 75; i++)
+			büro.incrementGrade();
+		for (int i = 0; i < 4; i++)
+			büro.decrementGrade();
+		büro.signForm(*d);
+		d->execute(büro);
+		delete d;
+	}
+	std::cout << partition << std::endl;
+	std::cout << "SHRUBBERYCREATIONFORM\n";
+	std::cout << partition << std::endl;
+	{
+		Intern unknown;
+		AForm *c = unknown.makeForm("ShrubberyCreationForm", "excute");
+		for (int i = 0; i < 75; i++)
+			büro.incrementGrade();
+		for (int i = 0; i < 4; i++)
+			büro.decrementGrade();
+		büro.signForm(*c);
+		c->execute(büro);
+		delete c;
+	}
 }

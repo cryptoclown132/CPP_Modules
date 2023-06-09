@@ -16,8 +16,8 @@ Bureaucrat::Bureaucrat() : _name("noname"), _grade(75)
 {
 	std::cout << "Bureaucrat constructor called\n";
 }
-		
-Bureaucrat::Bureaucrat(Bureaucrat const &bureaucrat)
+
+Bureaucrat::Bureaucrat(Bureaucrat const &bureaucrat) : _name(bureaucrat.getName())
 {
 	std::cout << "Bureaucrat copy constructor called\n";
 	*this = bureaucrat;

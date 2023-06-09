@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:05:03 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/26 15:44:34 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/09 19:04:17 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,13 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 	return *this;
 }
 
-
-// #include <cstdlib>
-// #include <ctime>
-
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	if (!execRequierments(executor))
 		return ;
 	std::cout << "some drilling noises...\n";
-	double randomValue = (double)std::rand() / (double)RAND_MAX;
-	// std::cout << "rand value: " << randomValue << std::endl;  
-	if (randomValue < 0.5)
+	srand(time(0));
+	int randomValue = rand() % 2;
+	if (randomValue == 0)
 	{
 		std::cout << "The " << getTarget() << " has been robotomized successfully.\n";
 		return ;

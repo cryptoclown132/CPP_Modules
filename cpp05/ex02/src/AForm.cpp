@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:06 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/26 14:47:08 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/09 17:22:03 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ AForm::AForm() : _name("noname"), _signed(false), _grade_signed(75), _grade_exec
 	std::cout << "Form constructor called\n";
 }
 
-AForm::AForm(AForm const &form) : _grade_signed(form.getGradeSigned()), _grade_exec(form.getGradeExec())
+AForm::AForm(AForm const &form) : _name(form.getName()), _grade_signed(form.getGradeSigned()), _grade_exec(form.getGradeExec())
 {
 	std::cout << "Form copy constructor called\n";
 	*this = form;
@@ -96,17 +96,10 @@ const char	*AForm::FormNotSignedException::what() const throw(){
 
 void	AForm::beSigned(Bureaucrat const &bureaucrat)
 {
-	try
-	{
-		if (bureaucrat.getGrade() < getGradeSigned())
-			_signed = true;
-		else
-			throw GradeTooLowException();
-	}
-	catch(GradeTooLowException &e)
-	{
-		std::cerr << e.what();
-	}
+	if (bureaucrat.getGrade() <= this->getGradeSigned())
+		this->_signed = true;
+	else
+		throw GradeTooLowException();
 }
 
 std::string		AForm::getTarget() const{

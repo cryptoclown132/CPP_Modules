@@ -26,11 +26,14 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	// catch(GradeTooLowException &e)
-	// {
-	// 	std::cerr << e.what();
-	// }
-
+	try
+	{
+		ef.incrementGrade();
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << e.what();
+	}
 	std::cout << ab;
 	std::cout << cd;
 	std::cout << ef;

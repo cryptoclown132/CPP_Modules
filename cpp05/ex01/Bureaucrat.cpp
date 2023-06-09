@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat() : _name("noname"), _grade(75)
 	std::cout << "Bureaucrat constructor called\n";
 }
 		
-Bureaucrat::Bureaucrat(Bureaucrat const &bureaucrat)
+Bureaucrat::Bureaucrat(Bureaucrat const &bureaucrat) : _name(bureaucrat.getName())
 {
 	std::cout << "Bureaucrat copy constructor called\n";
 	*this = bureaucrat;
@@ -108,7 +108,7 @@ void	Bureaucrat::signForm(Form &form) const{
 	}
 	catch (Form::GradeTooLowException &e)
 	{
-		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what();
 		return ;
 	}
 	std::cout << this->getName() << " signed " << form.getName() << std::endl;

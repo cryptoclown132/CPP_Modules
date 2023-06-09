@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:06 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/24 20:07:08 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/09 17:20:41 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Form::Form() : _name("noname"), _signed(false), _grade_signed(75), _grade_exec(7
 	std::cout << "Form constructor called\n";
 }
 
-Form::Form(Form const &form) : _grade_signed(form.getGradeSigned()), _grade_exec(form.getGradeExec())
+Form::Form(Form const &form) : _name(form.getName()), _grade_signed(form.getGradeSigned()), _grade_exec(form.getGradeExec())
 {
 	std::cout << "Form copy constructor called\n";
 	*this = form;
@@ -91,15 +91,8 @@ const char	*Form::GradeTooLowException::what() const throw(){
 
 void	Form::beSigned(Bureaucrat const &bureaucrat)
 {
-	try
-	{
-		if (bureaucrat.getGrade() > this->getGradeSigned())
-			this->_signed = true;
-		else
-			throw GradeTooLowException();
-	}
-	catch(GradeTooLowException &e)
-	{
-		std::cerr << e.what();
-	}
+	if (bureaucrat.getGrade() <= this->getGradeSigned())
+		this->_signed = true;
+	else
+		throw GradeTooLowException();
 }
