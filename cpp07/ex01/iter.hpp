@@ -16,14 +16,14 @@
 #include <string>
 
 template <typename T>
-void	iter(T *a, size_t length, void (*f)(T &))
+void	iter(T *a, size_t length, void (*f)(T const &))
 {
 	for (size_t i = 0; i < length; i++)
 		f(a[i]);
 }
 
 template <typename T>
-void	print(T out)
+void	print(T const &out)
 {
 	std::cout << out << std::endl;
 }

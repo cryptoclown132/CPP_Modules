@@ -16,4 +16,7 @@ int	main()
 {
 	std::string	arr[5] = {"ab", "cd", "ef", "gh", "ij"};
 	iter(arr, 5, print);
+
+	int	brr[6] = {12, 3432, -22, 23, 45, 120};
+	iter(brr, 6, print);
 }

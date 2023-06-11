@@ -21,6 +21,7 @@ class Array
 		T				*_arr;
 		unsigned int	_size;
 	public:
+		~Array();
 		Array();
 		Array(unsigned int);
 		Array(Array const &array);
