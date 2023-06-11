@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:23:01 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/08 17:16:36 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/10 01:00:47 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int main()
 		dog.setIdeas(101, "ad");
 		dog.getIdeas(101);
 	}
-
 	// Animal *animales[2];
 	// animales[0] = new Cat();
 	// animales[1] = new Dog();
