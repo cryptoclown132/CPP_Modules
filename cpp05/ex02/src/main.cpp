@@ -52,4 +52,33 @@ int main()
 		shrub.beSigned(ef);
 		shrub.execute(ef);
 	}
+
+	std::cout << partition << std::endl;
+	std::cout << "FORM NOT SIGNED\n";
+	std::cout << partition << std::endl;
+	{
+		Bureaucrat jong("jong", 89);
+		PresidentialPardonForm korea("nuke");
+		
+			jong.executeForm(korea);
+	
+	}
+	std::cout << partition << std::endl;
+	std::cout << "GRADE TO LOW TO EXCUTE\n";
+	std::cout << partition << std::endl;
+	{
+		Bureaucrat macron("MACRON", 89);
+		Bureaucrat r("r", 12);
+		PresidentialPardonForm france("cheese");
+		france.beSigned(r);
+		macron.executeForm(france);
+	}
+
+	// PresidentialPardonForm p("zass");
+	// PresidentialPardonForm c(p);
+	// std::cout << c.getGradeExec() << std::endl;
+	// std::cout << c.getGradeSigned() << std::endl;
+	// std::cout << c.getSigned() << std::endl;
+	// std::cout << c.getTarget() << std::endl;
+	// std::cout << c.getName() << std::endl;
 }

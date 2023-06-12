@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 20:52:14 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/26 15:58:32 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:44:29 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 	std::cout << "shrub constructor with target called\n";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &shrub)
-: AForm(shrub.getName(), shrub.getGradeSigned(), shrub.getGradeExec(), shrub.getTarget())
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &shrub) : AForm(shrub)
 {
 	std::cout << "shrub copy constructor called\n";
 	*this = shrub;

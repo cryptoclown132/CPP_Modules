@@ -63,4 +63,12 @@ int main()
 		c->execute(büro);
 		delete c;
 	}
+	std::cout << partition << std::endl;
+	std::cout << "INTERN CANT CREATE FORM\n";
+	std::cout << partition << std::endl;
+	{
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	}
 }

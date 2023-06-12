@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:10:38 by jkroger           #+#    #+#             */
-/*   Updated: 2023/05/26 14:40:56 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:45:16 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 	std::cout << "President constructor with target called\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &president) 
-	: AForm(president.getName(), president.getGradeSigned(), president.getGradeExec(), president.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &president) : AForm(president)
 {
 	std::cout << "President copy constructor called\n";
 	*this = president;
-}		
+}	
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {

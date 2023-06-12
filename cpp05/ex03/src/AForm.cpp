@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:06 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/09 17:22:29 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:37:40 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,10 @@ AForm::AForm(std::string name, int grade_signed, int grade_exec, std::string tar
 	, _grade_exec(grade_exec), _target(target)
 {
 	std::cout << "Form constructor with args called\n";
-	try
-	{
-		if (this->_grade_signed > 150 || this->_grade_exec > 150)
-			throw GradeTooLowException();
-		else if (this->_grade_signed < 1 || this->_grade_exec < 1)
-			throw GradeTooHighException();
-	}
-	catch(GradeTooHighException &e)
-	{
-		std::cerr << e.what();
-	}
-	catch(GradeTooLowException &e)
-	{
-		std::cerr << e.what();
-	}
+	if (this->_grade_signed > 150 || this->_grade_exec > 150)
+		throw GradeTooLowException();
+	else if (this->_grade_signed < 1 || this->_grade_exec < 1)
+		throw GradeTooHighException();
 }
 
 AForm::~AForm()
@@ -49,15 +38,14 @@ AForm::~AForm()
 	std::cout << "Form destructor called\n";
 }
 
-
 AForm	&AForm::operator=(AForm const &form)
 {
 	if (this == &form)
 		return *this;
+	_target = form.getTarget();
 	_signed = form.getSigned();
 	return *this;
 }
-
 
 const std::string	AForm::getName() const{
 	return _name;
@@ -83,15 +71,15 @@ std::ostream	&operator<<(std::ostream &out, AForm const &form)
 
 
 const char	*AForm::GradeTooHighException::what() const throw(){
-	return "Grade too High!\n";
+	return "Grade too High!";
 }
 
 const char	*AForm::GradeTooLowException::what() const throw(){
-	return "Grade too Low!\n";
+	return "Grade too Low!";
 }
 
 const char	*AForm::FormNotSignedException::what() const throw(){
-	return "Form is not signed!\n";
+	return "Form is not signed!";
 }
 
 void	AForm::beSigned(Bureaucrat const &bureaucrat)
@@ -107,24 +95,17 @@ std::string		AForm::getTarget() const{
 }
 
 bool	AForm::execRequierments(Bureaucrat const &bureau) const{
-	try
+	if (!getSigned())
 	{
-		if (!getSigned())
-			throw FormNotSignedException();
-		if (getGradeExec() < bureau.getGrade())
-			throw GradeTooLowException();
-		return true;
-	}
-	catch(FormNotSignedException &e)
-	{
-		std::cerr << e.what();
+		throw FormNotSignedException();
 		return false;
 	}
-	catch(GradeTooLowException &e)
+	if (getGradeExec() < bureau.getGrade())
 	{
-		std::cerr << e.what();
+		throw GradeTooLowException();
 		return false;
 	}
+	return true;
 }
 
 void	AForm::setTarget(std::string target)

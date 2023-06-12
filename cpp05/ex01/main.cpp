@@ -30,15 +30,15 @@ int main()
 		}
 		catch(std::exception &e)
 		{
-			std::cerr << e.what();
+			std::cerr << e.what() << std::endl;
 		}
 	}
 	std::cout << partition << std::endl;
 	std::cout << "SIGN FORM WORKS\n";
 	std::cout << partition << std::endl;
 	{
-		Bureaucrat obama("Obama", -151);
-		Form d("important", 21, 220);
+		Bureaucrat obama("Obama", 1);
+		Form d("important", 21, 120);
 		try
 		{
 			obama.signForm(d);
@@ -46,7 +46,7 @@ int main()
 		}
 		catch(std::exception &e)
 		{
-			std::cerr << e.what();
+			std::cerr << e.what() << std::endl;
 		}
 		std::cout << d << std::endl;
 	}
@@ -55,7 +55,7 @@ int main()
 	std::cout << partition << std::endl;
 	{
 		Form c("docs", 120, 123);
-		Bureaucrat dave("Dave", 151);
+		Bureaucrat dave("Dave", 150);
 		for (int i = 0; i < 40; i++)
 			dave.incrementGrade();
 		c.beSigned(dave);
@@ -73,8 +73,39 @@ int main()
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what();
+			std::cerr << e.what() << std::endl;
 		}
 		std::cout << j.getSigned() << std::endl;
+		std::cout << j << std::endl; 
 	}
+	std::cout << partition << std::endl;
+	std::cout << "FORM CONSTRUCTOR EXCEPTION\n";
+	std::cout << partition << std::endl;
+	{
+		try
+		{
+			Form d("important", -2, 1);
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		try
+		{
+			Form d("important", 12, 234);
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << partition << std::endl;
+	std::cout << "FORM COPY CONSTRUCTOR\n";
+	std::cout << partition << std::endl;
+	Form	s("alter", 34, 53);
+	Form	t(s);
+	std::cout << t.getName() << std::endl;
+	std::cout << t.getGradeExec() << std::endl;
+	std::cout << t.getGradeSigned() << std::endl;
+	std::cout << t.getSigned() << std::endl;
 }

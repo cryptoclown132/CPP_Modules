@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:05:03 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/09 19:04:17 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:44:04 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy R
 	std::cout << "robo constructor with target called\n";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &robo)
-: AForm(robo.getName(), robo.getGradeSigned(), robo.getGradeExec(), robo.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &robo) : AForm(robo)
 {
 	std::cout << "robo coyp constructor called\n";
 	*this = robo;

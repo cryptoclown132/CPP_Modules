@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:10:06 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/09 17:20:41 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/12 15:50:12 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,10 @@ Form::Form(Form const &form) : _name(form.getName()), _grade_signed(form.getGrad
 Form::Form(std::string name, int grade_signed, int grade_exec) : _name(name), _signed(false), _grade_signed(grade_signed), _grade_exec(grade_exec)
 {
 	std::cout << "Form constructor with args called\n";
-	try
-	{
-		if (this->_grade_signed > 150 || this->_grade_exec > 150)
-			throw GradeTooLowException();
-		else if (this->_grade_signed < 1 || this->_grade_exec < 1)
-			throw GradeTooHighException();
-	}
-	catch(GradeTooHighException &e)
-	{
-		std::cerr << e.what();
-	}
-	catch(GradeTooLowException &e)
-	{
-		std::cerr << e.what();
-	}
+	if (this->_grade_signed > 150 || this->_grade_exec > 150)
+		throw GradeTooLowException();
+	else if (this->_grade_signed < 1 || this->_grade_exec < 1)
+		throw GradeTooHighException();
 }
 
 Form::~Form()
@@ -82,11 +71,11 @@ std::ostream	&operator<<(std::ostream &out, Form const &form)
 
 
 const char	*Form::GradeTooHighException::what() const throw(){
-	return "Grade too High!\n";
+	return "Grade too High!";
 }
 
 const char	*Form::GradeTooLowException::what() const throw(){
-	return "Grade too Low!\n";
+	return "Grade too Low!";
 }
 
 void	Form::beSigned(Bureaucrat const &bureaucrat)
