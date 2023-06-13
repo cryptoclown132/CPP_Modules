@@ -20,6 +20,7 @@ int	main()
 	serialized.name = "jon";
 	serialized.age = 30;
 	uintptr_t i = seri.serialize(&serialized);
+	std::cout << "i: " << i << std::endl; 
 	Data	*deserialized = seri.deserialize(i);
 	std::cout << "name: " << deserialized->name << std::endl;
 	std::cout << "age: " << deserialized->age << std::endl;

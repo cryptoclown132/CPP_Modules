@@ -20,14 +20,4 @@ int	main()
 	identify(newGen);
 	identify(*newGen);
 	delete newGen;
-
-	// newGen = generate();
-	// identify(newGen);
-	// identify(&(*newGen));
-	// delete	newGen;
-
-	// newGen = generate();
-	// identify(newGen);
-	// identify(&(*newGen));
-	// delete	newGen;
 }

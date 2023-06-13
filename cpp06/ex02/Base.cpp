@@ -14,12 +14,6 @@
 
 Base::~Base(){}
 
-A::~A(){}
-
-B::~B(){}
-
-C::~C(){}
-
 Base * generate(void)
 {
 	srand(time(0));
@@ -36,13 +30,13 @@ Base * generate(void)
 void identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
-		std::cout << "P points to type A\n";
+		std::cout << "*P points to type A\n";
 	else if (dynamic_cast<B*>(p))
-		std::cout << "P points to type B\n";
+		std::cout << "*P points to type B\n";
 	else if (dynamic_cast<C*>(p))
-		std::cout << "P points to type C\n";
+		std::cout << "*P points to type C\n";
 	else
-		std::cout << "P points to unknown\n";
+		std::cout << "*P points to unknown\n";
 }
 
 void identify(Base& p)
@@ -50,22 +44,19 @@ void identify(Base& p)
 	try
 	{
 		A	&a = dynamic_cast<A&>(p);
-		std::cout << "P points to type A\n";
-		//(void)a;
+		std::cout << "&P points to type A\n";
 	}
 	catch(const std::exception& e){}
 	try
 	{
 		B	&b = dynamic_cast<B&>(p);
-		std::cout << "P points to type B\n";
-		//(void)b;
+		std::cout << "&P points to type B\n";
 	}
 	catch(const std::exception& e){}
 	try
 	{
 		C	&c = dynamic_cast<C&>(p);
-		std::cout << "P points to type C\n";
-		//(void)c;
+		std::cout << "&P points to type C\n";
 	}
 	catch(const std::exception& e){}
 }

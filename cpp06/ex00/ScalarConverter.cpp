@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:41:04 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/01 21:22:43 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/13 22:26:01 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ double	ScalarConverter::getDouble() const{
 	return _d;
 }
 
-
 bool	ScalarConverter::_isChar(std::string convert)
 {
 	try
@@ -71,7 +70,7 @@ bool	ScalarConverter::_isChar(std::string convert)
 			std::cout << "double: " << static_cast<double>(_c) << ".0" << std::endl;
 			return true;
 		}
-		else if (isprint(std::stoi(convert)))
+		else if (convert.find('f') == std::string::npos && convert.find('.') == std::string::npos && isprint(std::stoi(convert)))
 		{
 			_c = std::stoi(convert);
 			std::cout << "char: " << _c << std::endl;
@@ -96,7 +95,7 @@ bool	ScalarConverter::_isInt(std::string convert)
 		if (convert[i] < '0' || convert[i] > '9')
 			return false;
 	}
-	try //check here
+	try
 	{
 		_i = std::stoi(convert);
 		std::cout << "char: Non displayable\n";
@@ -122,23 +121,44 @@ bool	ScalarConverter::_isFloat(std::string convert)
 		i++;
 	if (convert[i - 1] != 'f')
 		return false;
-	_f = std::stof(convert);
-	std::cout << "char: Non displayable\n";
-	std::cout << "int: " <<  static_cast<int>(_f) << std::endl;
-	std::cout << "float: " << _f << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(_f) << std::endl;
-	return true;
+	try
+	{
+		_f = std::stof(convert);
+		if (isprint(std::stoi(convert)))
+			std::cout << "char: " << static_cast<char>(_f) << std::endl;
+		else
+			std::cout << "char: Non displayable\n";
+		std::cout << "int: " <<  static_cast<int>(_f) << std::endl;
+		std::cout << "float: " << _f << (floor(_f) == _f ? ".0" : "") << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(_f) << (floor(_f) == _f ? ".0" : "") << std::endl;
+		return true;
+	}
+	catch(const std::out_of_range& e)
+	{
+		std::cerr << e.what() << '\n';
+		return false;
+	}	
 }
 
-
 bool	ScalarConverter::_isDouble(std::string convert)
-{	
-	_d = std::stod(convert);
-	std::cout << "char: Non displayable\n";
-	std::cout << "int: " <<  static_cast<int>(_d) << std::endl;
-	std::cout << "float: " << static_cast<float>(_d) << "f" << std::endl;
-	std::cout << "double: " << _d << std::endl;
-	return true;
+{
+	try
+	{
+		_d = std::stod(convert);
+		if (isprint(std::stoi(convert)))
+			std::cout << "char: " << static_cast<char>(_d) << std::endl;
+		else
+			std::cout << "char: Non displayable\n";
+		std::cout << "int: " <<  static_cast<int>(_d) << std::endl;
+		std::cout << "float: " << static_cast<float>(_d) << (floor(_d) == _d ? ".0" : "") << "f" << std::endl;
+		std::cout << "double: " << _d << (floor(_d) == _d ? ".0" : "") << std::endl;
+		return true;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		return false;
+	}
 }
 
 
@@ -160,7 +180,6 @@ void	ScalarConverter::_specific_cases(std::string convert)
 
 bool	ScalarConverter::_error(std::string convert)
 {
-	// f . and point also ignored
 	if (convert.length() == 1)
 		return true;
 	int i = 0;
@@ -182,8 +201,6 @@ bool	ScalarConverter::_error(std::string convert)
 
 void	ScalarConverter::convert(std::string convert)
 {
-	//err checking
-	//length > 1 and and charcaters in it wrong input except one + or - at the start
 	std::string	special_cases[8] = {"inf", "+inf", "-inf", "nan", "nanf", "inff", "-inff", "+inff"};
 	for (int i = 0; i < 8; i++)
 	{
@@ -193,15 +210,17 @@ void	ScalarConverter::convert(std::string convert)
 			return ;
 		}
 	}
-	if (!_error(convert))
+	if (!_error(convert) || convert.length() < 1)
 	{
 		std::cout << "Wrong input! Is not a number\n";
 		return ;
 	}
 	bool	(ScalarConverter::*func[]) (std::string) = {&ScalarConverter::_isChar, &ScalarConverter::_isInt, &ScalarConverter::_isFloat
-		, &ScalarConverter::_isDouble};
+		, ScalarConverter::_isDouble};
 
 	int i = 0;
 	while (i < 4 && !(this->*func[i])(convert))
 		i++;
+	if (i == 4)
+		std::cout << "Number too big!\n";
 }
