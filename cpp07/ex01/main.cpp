@@ -12,15 +12,6 @@
 
 #include "iter.hpp"
 
-// int	main()
-// {
-// 	std::string	arr[5] = {"ab", "cd", "ef", "gh", "ij"};
-// 	iter(arr, 5, print);
-
-// 	int	brr[6] = {12, 3432, -22, 23, 45, 120};
-// 	iter(brr, 6, print);
-// }
-
 class Awesome
 {
   public:
@@ -36,19 +27,39 @@ std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
   return o;
 }
 
-template< typename T >
-void print( T& x )
+int main()
 {
-  std::cout << x << std::endl;
-  return;
-}
+	std::string partition(50, '-');
 
-int main() {
-  int tab[] = { 0, 1, 2, 3, 4 };
-  Awesome tab2[5];
+	std::cout << partition << std::endl;
+	std::cout << "INT\n";
+	std::cout << partition << std::endl;
+	{
+		int	tab[6] = {12, 3432, -22, 23, 45, 120};
+		iter(tab, 6, print);
+	}
 
-  iter( tab, 5, print<const int> );
-  iter( tab2, 5, print<Awesome> );
+	std::cout << partition << std::endl;
+	std::cout << "CONST CHAR *\n";
+	std::cout << partition << std::endl;
+	{
+		const char *s[3] = {"jsda", "asd", "adsas"};
+		iter(s, 3, print);
+	}
+  	
+	std::cout << partition << std::endl;
+	std::cout << "STRING\n";
+	std::cout << partition << std::endl;
+	{
+		std::string	arr[5] = {"ab", "cd", "ef", "gh", "ij"};
+		iter(arr, 5, print);
+	}
 
-  return 0;
+	std::cout << partition << std::endl;
+	std::cout << "Class\n";
+	std::cout << partition << std::endl;
+	{
+		Awesome tab2[5];
+		iter( tab2, 5, print<Awesome> );
+	}
 }

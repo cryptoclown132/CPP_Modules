@@ -38,12 +38,7 @@ Array<T>	&Array<T>::operator=(Array const &array)
 	_size = array.size();
 	_arr = new T[array._size];
 	for (unsigned int i = 0; i < array.size(); i++)
-	{
-		if (array._arr[i])
 			_arr[i] = array._arr[i];
-		else
-			_arr[i] = 0;
-	}
 	return *this;
 }
 

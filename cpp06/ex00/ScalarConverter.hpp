@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:47:04 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/13 22:25:03 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/14 12:04:37 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <cctype>
 # include <cstring>
-
+# include <cmath>
 
 class ScalarConverter
 {

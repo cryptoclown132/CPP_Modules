@@ -6,7 +6,7 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:41:04 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/13 22:26:01 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/06/14 12:07:51 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 ScalarConverter::ScalarConverter()
 {
-		_c = '\0';
-		_i = 0;
-		_f = 0.0f;
-		_d = 0.0;
+		ScalarConverter::_c = '\0';
+		ScalarConverter::_i = 0;
+		ScalarConverter::_f = 0.0f;
+		ScalarConverter::_d = 0.0;
 }
 
 
@@ -34,27 +34,27 @@ ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &converter)
 {
 	if (this == &converter)
 		return *this;
-	_c = converter.getChar();
-	_i = converter.getInt();
-	_f = converter.getFloat();
-	_d = converter.getDouble();
+	ScalarConverter::_c = converter.getChar();
+	ScalarConverter::_i = converter.getInt();
+	ScalarConverter::_f = converter.getFloat();
+	ScalarConverter::_d = converter.getDouble();
 	return *this;
 }
 
 char	ScalarConverter::getChar() const{
-	return _c;
+	return ScalarConverter::_c;
 }
 
 int		ScalarConverter::getInt() const{
-	return _i;
+	return ScalarConverter::_i;
 }
 
 float	ScalarConverter::getFloat() const{
-	return _f;
+	return ScalarConverter::_f;
 }
 
 double	ScalarConverter::getDouble() const{
-	return _d;
+	return ScalarConverter::_d;
 }
 
 bool	ScalarConverter::_isChar(std::string convert)
@@ -215,11 +215,10 @@ void	ScalarConverter::convert(std::string convert)
 		std::cout << "Wrong input! Is not a number\n";
 		return ;
 	}
-	bool	(ScalarConverter::*func[]) (std::string) = {&ScalarConverter::_isChar, &ScalarConverter::_isInt, &ScalarConverter::_isFloat
-		, ScalarConverter::_isDouble};
-
+	bool	(*func[]) (std::string) = {&ScalarConverter::_isChar, &ScalarConverter::_isInt, &ScalarConverter::_isFloat
+		, &ScalarConverter::_isDouble};
 	int i = 0;
-	while (i < 4 && !(this->*func[i])(convert))
+	while (i < 4 && !(*func[i])(convert))
 		i++;
 	if (i == 4)
 		std::cout << "Number too big!\n";
