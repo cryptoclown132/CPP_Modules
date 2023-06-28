@@ -12,21 +12,70 @@
 
 #include "easyfind.hpp"
 #include <vector>
-
+#include <deque>
+#include <list> 
 
 int	main()
 {
-    std::vector<int> numbers;
-	numbers.push_back(23);
-	numbers.push_back(45);
-	for (int i = 1; i < 1000; i *= 2)
-		numbers.push_back(i);
-	try
+	std::string partition(50, '-');
+
+	std::cout << partition << std::endl;
+	std::cout << "VECTOR\n";
+	std::cout << partition << std::endl;
 	{
-		easyfind(numbers, 5412);
+		std::vector<int> numbers;
+		numbers.push_back(23);
+		numbers.push_back(45);
+		for (int i = 1; i < 1000; i *= 2)
+			numbers.push_back(i);
+		::easyfind(numbers, 23);
+		try
+		{
+			::easyfind(numbers, 5412);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
-	catch(const std::exception& e)
+	
+	std::cout << partition << std::endl;
+	std::cout << "DEQUE\n";
+	std::cout << partition << std::endl;
 	{
-		std::cerr << e.what() << '\n';
+		std::deque<int> numbers;
+		numbers.push_back(23);
+		numbers.push_back(45);
+		for (int i = 1; i < 1000; i *= 2)
+			numbers.push_back(i);
+		::easyfind(numbers, 23);
+		try
+		{
+			::easyfind(numbers, 5412);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+
+	std::cout << partition << std::endl;
+	std::cout << "LIST\n";
+	std::cout << partition << std::endl;
+	{
+		std::list<int> numbers;
+		numbers.push_back(23);
+		numbers.push_back(45);
+		for (int i = 1; i < 1000; i *= 2)
+			numbers.push_back(i);
+		::easyfind(numbers, 23);
+		try
+		{
+			::easyfind(numbers, 5412);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 }
