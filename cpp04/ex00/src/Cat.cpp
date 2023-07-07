@@ -6,13 +6,13 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:11:44 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 17:10:18 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/07/01 12:26:03 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Cat.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat constructor called\n";
 }

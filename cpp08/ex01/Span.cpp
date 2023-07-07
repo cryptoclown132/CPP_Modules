@@ -70,7 +70,7 @@ int	Span::shortestSpan()
 	{
 		for (std::vector<int>::const_iterator it_2 = _arr.begin(); it_2 != _arr.end(); ++it_2)
 		{
-			if (*it == *it_2)
+			if (it == it_2)
 				continue;
 			if (std::abs(*it - *it_2) < shortest_span)
 				shortest_span = std::abs(*it - *it_2);

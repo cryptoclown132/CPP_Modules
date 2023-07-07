@@ -6,13 +6,13 @@
 /*   By: jkroger <jkroger@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:12:03 by jkroger           #+#    #+#             */
-/*   Updated: 2023/06/06 17:10:28 by jkroger          ###   ########.fr       */
+/*   Updated: 2023/07/01 12:26:17 by jkroger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Dog.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog constructor called\n";
 }

@@ -14,6 +14,7 @@
 # define EASYFIND_HPP
 # include <iostream>
 # include <algorithm>
+# include <string>
 
 template <typename T>
 void	easyfind(T &container, int find);
