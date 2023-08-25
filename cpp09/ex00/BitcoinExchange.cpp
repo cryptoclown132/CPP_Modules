@@ -42,7 +42,7 @@ void	BitcoinExchange::_validStream(std::ifstream &infile) const{
 int	BitcoinExchange::_validAmount(float amount) const{
 	if (amount < 0 || amount > 1000)
 	{
-		std::cerr << "Error: Number has to be between 1 and 1000.\n";
+		std::cerr << "Error: Number has to be between 0 and 1000.\n";
 		return 1;
 	}
 	return 0;
