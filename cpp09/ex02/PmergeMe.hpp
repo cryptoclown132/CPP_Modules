@@ -22,6 +22,7 @@
 # include <ctime>
 # include <exception>
 # include <iomanip>
+# include <limits>
 
 class PmergeMe
 {

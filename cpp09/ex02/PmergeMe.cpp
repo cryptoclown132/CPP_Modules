@@ -95,7 +95,7 @@ std::vector<int>	PmergeMe::_mergeInsertVec(std::vector<int> &vec)
 
 void	PmergeMe::_insertionLst(std::list<int>	&lst)
 {
-	for (std::list<int>::iterator it = std::next(lst.begin()), it_2 = it; it != lst.end();  ++it)
+	for (std::list<int>::iterator it = std::next(lst.begin()); it != lst.end();  ++it)
 	{
 		std::list<int>::iterator	curr_it = it;
 		std::list<int>::iterator	prev_it = std::prev(it);
@@ -167,7 +167,9 @@ void	PmergeMe::createContainers(std::vector<int> &vec, std::list<int> &lst, char
 {
 	for (int i = 1; argv[i]; i++)
 	{
-		if (std::string(argv[i]).find_first_not_of("0123456789") != std::string::npos)
+		if (std::string(argv[i]).find_first_not_of("0123456789") != std::string::npos || strlen(argv[i]) > 10)
+			throw ArgumentIsNotANumberException();
+		if (atol(argv[i]) > std::numeric_limits<int>::max())
 			throw ArgumentIsNotANumberException();
 		vec.push_back(atoi(argv[i]));
 		lst.push_back(atoi(argv[i]));
