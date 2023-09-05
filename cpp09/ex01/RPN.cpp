@@ -46,6 +46,8 @@ int	getResult(std::string calculation)
 			continue;
 		if (std::isdigit(calculation[i]))
 			polish.push(calculation[i] - '0');
+		else if (calculation[i] && std::isdigit(calculation[i + 1]))
+			polish.push((calculation[++i] - '0') * -1);
 		else if(calculation[i] == '+' || calculation[i] == '-' || calculation[i] == '*' || calculation[i] == '/')
 			doCalculation(polish, calculation[i]);
 		else

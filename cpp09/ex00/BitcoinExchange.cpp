@@ -39,7 +39,7 @@ void	BitcoinExchange::_validStream(std::ifstream &infile) const{
 		throw std::runtime_error("Error: File is empty.");
 }
 
-int	BitcoinExchange::_validAmount(float amount) const{
+int	BitcoinExchange::_validAmount(float const &amount) const{
 	if (amount < 0 || amount > 1000)
 	{
 		std::cerr << "Error: Number has to be between 0 and 1000.\n";
@@ -112,7 +112,7 @@ int	BitcoinExchange::_validDate(std::string date)
 	return 0;
 }
 
-void	BitcoinExchange::_printOutValue(std::string date, float amount)
+void	BitcoinExchange::_printOutValue(std::string const &date, float amount)
 {
 	std::map<std::string, float>::iterator it = _bitcoin_db.find(date);
 

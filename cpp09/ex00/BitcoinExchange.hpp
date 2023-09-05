@@ -26,11 +26,11 @@ class BitcoinExchange
 		std::map<std::string, float>	_bitcoin_db;
 		void							_creatDataBase();
 		int								_validDate(std::string date);
-		int								_validAmount(float amount) const;
+		int								_validAmount(float const &amount) const;
 		void							_validStream(std::ifstream &infile) const;
 		int								_validInput(std::string line, size_t delim);
 		int								_validInput_2(std::string line, size_t delim);
-		void							_printOutValue(std::string date, float amount);
+		void							_printOutValue(std::string const &date, float amount);
 	public:
 		BitcoinExchange();
 		BitcoinExchange(BitcoinExchange const &bitcoin);
